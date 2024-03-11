@@ -1,26 +1,54 @@
 <template>
   <div>
-    <h1 :class="{ 'title': false, 'title-home': isHome }">
-      Curso Vue 3
-    </h1>
+    One-Way Data Binding
+    Two-Way Data Binding
+    V-Model -> Formulários
+    <br><br><br>
+    <div>
+      <label>Nome</label> <br>
+      <input v-model="name" type="text"> <br><br>
+      {{ name }}
+    </div>
 
-    <p :class="pClass">
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis ducimus cupiditate, id repudiandae consequatur
-      quisquam esse laborum ex placeat nisi non, eveniet atque maiores voluptatibus aspernatur ad. Libero, alias ut?
-    </p>
-
-    <p :style="classStyle">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam deleniti molestiae tenetur illum nulla nihil eum
-      quidem repellendus recusandae, aut quaerat asperiores sint accusamus, officia ipsum debitis et modi assumenda?
-    </p>
-
-
-    <div v-for="(obj, index) in todos" v-bind:key="obj.id" class="todos-item">
-      <img :src="obj.SrcAlt" v-if="obj.SrcAlt">
-      {{index }} - {{obj.title}}
+    <div>
+      <br><br><br>
+      <label>Sports</label> <br>
+      <select v-model="sports">
+        <option value=''>Escolha</option>
+        <option value="skate">Skate</option>
+        <option value="futebol">Futebol</option>
+        <option value="tenis">Tenis</option>
+        <option value="fonfon">Birifonnn</option>
+      </select>
+      {{ sports }}
     </div>
 
 
+    <br><br><br>
+
+    <div>
+      <label>Newsletter</label> <br>
+      <input v-model="newsletter" type="radio" value="Sim"> Sim <br>
+      <input v-model="newsletter" type="radio" value="Não"> Não <br>
+      {{ newsletter }}
+    </div>
+
+    <br><br><br>
+
+    <div>
+      <label>Contrato</label> <br>
+      <input v-model="contract" type="checkbox"> Aceita nosso contrato? <br>
+      {{ contract }}
+    </div>
+
+    <br><br><br>
+
+    <div>
+      <label>Cores</label> <br>
+      <input v-model="colors" type="checkbox" value="Amarelo"> Amarelo <br>
+      <input v-model="colors" type="checkbox" value="Azul"> Azul <br>
+      {{ colors }}
+    </div>
 
   </div>
 </template>
@@ -31,6 +59,11 @@
     components: {
     }, data() {
       return {
+        name: "Jon Snow",
+        sports: '',
+        newsletter: '',
+        contract: '',
+        colors: [],
         todos: [
           {
             "userId": 1,
@@ -64,10 +97,6 @@
             "completed": false
           }
         ],
-        classVar: 'title',
-        isHome: true,
-        pClass: ['text', 'text-home'],
-        classStyle: { color: 'green', backgroundColor: 'black', 'font-size': '3rem' }
       }
     }
   }
@@ -81,29 +110,5 @@
     color: #000;
     margin-left: 60px;
     margin-top: 60px;
-  }
-
-  .todos-item {
-    background-color: #000;
-    color: #fff;
-    padding: 3px 5px;
-    margin-bottom: 5px;
-    max-width: 80%;
-  }
-
-  .title {
-    font-size: 2.5rem;
-    color: blue;
-  }
-
-  .title-home {
-    font-size: 3rem;
-    color: green;
-  }
-
-  .text-home {
-    font-size: 2rem;
-    color: aqua;
-
   }
 </style>
