@@ -4,8 +4,9 @@
 
 
 
-    <div v-for="obj in todos" v-bind:key="obj.id" class="todos-item">
-      {{obj.title}}
+    <div v-for="(obj, index) in todos" v-bind:key="obj.id" class="todos-item">
+      <img v-bind:src="obj.SrcAlt" v-if="obj.SrcAlt">
+      {{index }} - {{obj.title}}
     </div>
 
 
@@ -24,7 +25,8 @@
             "userId": 1,
             "id": 1,
             "title": "delectus aut autem",
-            "completed": false
+            "completed": false,
+            "SrcAlt": "https://placehold.co/600x400"
           },
           {
             "userId": 1,
